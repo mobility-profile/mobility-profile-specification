@@ -1,0 +1,47 @@
+<pre class='metadata'>
+Title: Mobility Profile
+Shortname: mobility-profile-spec
+Level: 1
+Status: LS
+URL: https://mobility-profile.github.io/mobility-profile-specification/
+Editor: Antti Poikola, Aalto University, http://www.hiit.fi/, antti.poikola@hiit.fi
+Abstract: Mobility Profile describes in unified format the main features (i.e frequent places, current location, most likely next trip and transport preferencies) of individuals mobility habits. Profile can be generated based on individual’s calendar data and location history among other personal data sources. According to the MyData -principles the profile owner will be in control of sharing the profile information to profile client applications. Sharing profile information instead of raw data enhances user privacy, since the profile data is less granular. General purpose Mobility Profile is intended to be used by variety mobility service providers and applications such as Journey Planners and future Mobility-as-a-Srevice (MaaS) operators.
+Status Text: This draft document is valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to cite this other than as "work in progress". This Draft will expire on November 20, 2016
+</pre>
+
+Introduction {#intro}
+=====================
+
+Users of transport services (e.g. public transportation, taxis, ride sharing services such as Uber etc.) are increasingly using digital tools such as journey planners, dedicated mobile applications and digital assistants (i.e. Google Now) to plan their trips. These tools often rely on end-user to allow access to their personal data such as GPS location, digital calendar or even emails and web searches. In the future Mobility-as-a-Service (MaaS)[1] -operators are envisioned to offer end-users seamless door-to-door mobility services that combine several modes of transportation (e.g. local and long-distance buses, trams, taxis, demand-responsive public transportation and shared private vehicles) into a simple package.
+These next generation mobility services are expected to utilize heavily data about the end-users to create personalized user experience as well as to optimize the service production. Furthermore as the MaaS operator orchestrates the service production together with several transport providers the information about the end-users need to be transferred between different systems and databases.
+
+Gathering personal data has always privacy and security implications and sharing that data between systems and organizations require technical interoperability. At the moment individual mobility applications work mostly in isolation. They rely on user consent to get access to the personal data in raw format usually directly from the mobile device. Also non-standard system specific data formats are used which causes fragmentation, high barrier for any between-systems integration, limited transferability of the information and in general end-user information to become locked into closed systems.
+
+To address the privacy concerns and fragmentation of data structures a common mobility profile could be defined. The aim is to secure from early on that the mobility profiles produced by the MaaS-operators will be interoperable and controlled by the end-user following the MyData -principles.
+
+## Definitions ## {#definitions}
+
+## Example ## {#example}
+
+Structure of mobility profile {#structure}
+==========================================
+
+: frequent_places
+:: string
+:: foo
+: current_location
+:: bar
+: likely_next_trip
+:: ..
+: preferred_mobility_mode
+:: .
+
+Security Considerations {#security}
+===================================
+
+Key security consideration is to decide the limits for how often and how widely the client applications are allowed to request profile information. Too frequent profile requests could make it possible to replicate for example profile owners full location history.
+
+Conclusions {#conclusions}
+==========================
+
+This is first working draft of the Mobility Profile which will be developed further.
