@@ -5,6 +5,8 @@ Level: 1
 Status: LS
 URL: https://mobility-profile.github.io/mobility-profile-specification/
 Editor: Antti Poikola, Aalto University, http://www.hiit.fi/, antti.poikola@hiit.fi
+Editor: Immo Heino, VTT
+Editor: Thomas Casey, VTT
 Abstract: Mobility Profile describes in unified format the main features (i.e frequent places, current location, most likely next trip and transport preferencies) of individuals mobility habits. Profile can be generated based on individual’s calendar data and location history among other personal data sources. According to the MyData -principles the profile owner will be in control of sharing the profile information to profile client applications. Sharing profile information instead of raw data enhances user privacy, since the profile data is less granular. General purpose Mobility Profile is intended to be used by variety mobility service providers and applications such as Journey Planners and future Mobility-as-a-Srevice (MaaS) operators.
 Status Text: This draft document is valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to cite this other than as "work in progress". This Draft will expire on November 20, 2016
 </pre>
@@ -21,7 +23,32 @@ To address the privacy concerns and fragmentation of data structures a common mo
 
 ## Definitions ## {#definitions}
 
+<dfn>Profile Owner</dfn> is the user who’s personal data is used to create the mobility profile. According to the MyData principles the profile owner has full control ower the content and sharing of the mobility profile.
+
+<dfn>Data Source</dfn> can, when authorised, provision profile owner’s personal data (e.g. calendar, current location or other mobility data suchs as travel card data) to the Personal Data Storage or Mobility Profile Creator.
+
+<dfn>Personal Data Storage</dfn> (PDS) is the component to receive, store and organize profile owner’s data from different sources prior to analysis and creation or update of the mobility profile.
+
+<dfn>Profile Creator</dfn> is a mobile application which provides the mobility profile specified in this draft via standard interfaces to other applications in the same mobile device (see. Profile client application). In simplest form the profile creator can be a dummy application serving static data, but in more advanced scenarios it receives data from data sources, does the data analysis and creates more accurate and dynamically changing mobility profile.
+
+<dfn>Profile Client</dfn> is a mobile application which requests the mobility profile via standard interfaces from the profile creator running in the same mobile device. It can be for example a journey planner application which uses the mobility profile information to context adaptation (i.e. suggest most propable next journey) and personalization (i.e. update preferred places).
+
 ## Example ## {#example}
+
+<div class="example">
+User story: As a traveller I want that my favourite journey planner app automatically suggests the most likely next trip (pre-filled in the search box) immeadiately when I open the application, so that I don’t need to type in anything.
+
+In this example Traveller is the Profile Owner. He has two applications installed on his mobile device 1) mobility Profile Creator which includes the Personal Data Storage and 2) the journey planner which is the Profile Client. The Profile Creator can access Data Sources most importantly the calendar and GPS location on travellers mobile device, but the journey planner does not need access to any personal data in raw format.
+
+In order to suggest the most likely next trip the journey planner request that information from the Profile Creator. The journey planner does not know how (or based on what data) the Profile Creator actually produces the most likely next trip estimate, it only receives the start place and destination of the most likely next trip and can use that for calculating route and presenting that for the user.
+
+The Profile Client can give feedback for the Profile Creator. If user accepts the suggested next trip as the actual trip it sends accepted:TRUE if not then it sends accepted:FALSE and the actual start place and destination which the user typed instead of accepting the suggestion. This enables the Profile Creator to enhance the Mobility Profile with machine learning.
+Communication between Profile Client and Profile creator happens automatically on the background. User involvement is needed only once when the journey planner and profile creator apps are connected for the first time.
+
+Design principle is to create require minimal changes to the existing journey planner apps. One option for light weight between-apps communicatio is to use URL Scheme (see for example https://appurl.org).
+
+<img width="100%" src='images/mobility-profile-example.png'>
+</div>
 
 Structure of mobility profile {#structure}
 ==========================================
