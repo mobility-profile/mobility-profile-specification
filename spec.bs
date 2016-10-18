@@ -8,7 +8,7 @@ Repository: mobility-profile/mobility-profile-specification
 Editor: Antti Poikola, Aalto University, http://www.hiit.fi, antti.poikola@hiit.fi
 Editor: Immo Heino, VTT
 Editor: Thomas Casey, VTT
-Abstract:
+Abstract: 
 !Version History: <a href="https://github.com/mobility-profile/mobility-profile-specification/commits">https://github.com/mobility-profile/mobility-profile-specification/commits</a>
 !Participate: <a href="https://github.com/mobility-profile/mobility-profile-specification/issues/new">File an issue</a> (<a href="https://github.com/mobility-profile/mobility-profile-specification/issues?state=open">open issues</a>)
 </pre>
