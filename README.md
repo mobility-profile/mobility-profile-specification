@@ -2,6 +2,8 @@ See the [html landing page for the Mobility Profile](https://mobility-profile.gi
 
 
 ### Light Specification
+
+[![Join the chat at https://gitter.im/mobility-profile/mobility-profile-specification](https://badges.gitter.im/mobility-profile/mobility-profile-specification.svg)](https://gitter.im/mobility-profile/mobility-profile-specification?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Read the [mobility profile specification](https://mobility-profile.github.io/mobility-profile-specification/spec).
 
 ### Reference Implementation
