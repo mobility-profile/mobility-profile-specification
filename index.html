@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>Mobility Profile</title>
+  <title>Mobility Profile v1.0</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <style data-fill-with="stylesheet">/******************************************************************************
  *                   Style sheet for the W3C specifications                   *
@@ -1325,44 +1325,54 @@ Possible extra rowspan handling
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
-   <h1 class="p-name no-ref" id="title">Mobility Profile</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-09-12">12 September 2016</time></span></h2>
+   <h1 class="p-name no-ref" id="title">Mobility Profile v1.0</h1>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-18">18 October 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://mobility-profile.github.io/mobility-profile-specification/">https://mobility-profile.github.io/mobility-profile-specification/</a>
+     <dd><a class="u-url" href="https://mobility-profile.github.io/mobility-profile-specification">https://mobility-profile.github.io/mobility-profile-specification</a>
+     <dt>Issue Tracking:
+     <dd><a href="https://github.com/mobility-profile/mobility-profile-specification/issues/">GitHub</a>
      <dt class="editor">Editors:
-     <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="http://www.hiit.fi/">Antti Poikola</a> (<span class="p-org org">Aalto University</span>) <a class="u-email email" href="mailto:antti.poikola@hiit.fi">antti.poikola@hiit.fi</a>
+     <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="http://www.hiit.fi">Antti Poikola</a> (<span class="p-org org">Aalto University</span>) <a class="u-email email" href="mailto:antti.poikola@hiit.fi">antti.poikola@hiit.fi</a>
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Immo Heino</span> (<span class="p-org org">VTT</span>)
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Thomas Casey</span> (<span class="p-org org">VTT</span>)
+     <dt>Version History:
+     <dd><span><a href="https://github.com/mobility-profile/mobility-profile-specification/commits">https://github.com/mobility-profile/mobility-profile-specification/commits</a></span>
+     <dt>Participate:
+     <dd><span><a href="https://github.com/mobility-profile/mobility-profile-specification/issues/new">File an issue</a> (<a href="https://github.com/mobility-profile/mobility-profile-specification/issues?state=open">open issues</a>)</span>
     </dl>
    </div>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 12 September 2016,
+In addition, as of 18 October 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
    <hr title="Separator for header">
   </div>
   <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-  <div class="p-summary" data-fill-with="abstract">
-   <p>Mobility Profile describes in unified format the main features (i.e frequent places, current location, most likely next trip and transport preferencies) of individuals mobility habits. Profile can be generated based on individual’s calendar data and location history among other personal data sources. According to the MyData -principles the profile owner will be in control of sharing the profile information to profile client applications. Sharing profile information instead of raw data enhances user privacy, since the profile data is less granular. General purpose Mobility Profile is intended to be used by variety mobility service providers and applications such as Journey Planners and future Mobility-as-a-Srevice (MaaS) operators.</p>
-  </div>
+  <div class="p-summary" data-fill-with="abstract"></div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
    <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
    <ol class="toc" role="directory">
+    <li><a href="#abstract0"><span class="secno">1</span> <span class="content">Abstract</span></a>
     <li>
-     <a href="#intro"><span class="secno">1</span> <span class="content">Introduction</span></a>
+     <a href="#intro"><span class="secno">2</span> <span class="content">Introduction</span></a>
      <ol class="toc">
-      <li><a href="#definitions"><span class="secno">1.1</span> <span class="content">Definitions</span></a>
-      <li><a href="#example"><span class="secno">1.2</span> <span class="content">Example</span></a>
+      <li><a href="#definitions"><span class="secno">2.1</span> <span class="content">Definitions</span></a>
+      <li><a href="#example"><span class="secno">2.2</span> <span class="content">Example</span></a>
      </ol>
-    <li><a href="#structure"><span class="secno">2</span> <span class="content">Structure of mobility profile</span></a>
-    <li><a href="#security"><span class="secno">3</span> <span class="content">Security Considerations</span></a>
-    <li><a href="#conclusions"><span class="secno">4</span> <span class="content">Conclusions</span></a>
+    <li>
+     <a href="#structure"><span class="secno">3</span> <span class="content">Structure of mobility profile</span></a>
+     <ol class="toc">
+      <li><a href="#messaging"><span class="secno">3.1</span> <span class="content">Messaging between Profile Creator and Profile Client</span></a>
+      <li><a href="#implementation"><span class="secno">3.2</span> <span class="content">Example Implementation of Profile Creator</span></a>
+     </ol>
+    <li><a href="#security"><span class="secno">4</span> <span class="content">Security Considerations</span></a>
+    <li><a href="#conclusions"><span class="secno">5</span> <span class="content">Conclusions</span></a>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -1373,56 +1383,48 @@ Parts of this work may be from another specification document.  If so, those par
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
      <ol class="toc">
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
+      <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
      </ol>
    </ol>
   </nav>
   <main>
-   <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
-   <p>Users of transport services (e.g. public transportation, taxis, ride sharing services such as Uber etc.) are increasingly using digital tools such as journey planners, dedicated mobile applications and digital assistants (i.e. Google Now) to plan their trips. These tools often rely on end-user to allow access to their personal data such as GPS location, digital calendar or even emails and web searches. In the future Mobility-as-a-Service (MaaS)[1] -operators are envisioned to offer end-users seamless door-to-door mobility services that combine several modes of transportation (e.g. local and long-distance buses, trams, taxis, demand-responsive public transportation and shared private vehicles) into a simple package.
-These next generation mobility services are expected to utilize heavily data about the end-users to create personalized user experience as well as to optimize the service production. Furthermore as the MaaS operator orchestrates the service production together with several transport providers the information about the end-users need to be transferred between different systems and databases.</p>
+   <h2 class="heading settled" data-level="1" id="abstract0"><span class="secno">1. </span><span class="content">Abstract</span><a class="self-link" href="#abstract0"></a></h2>
+   <p>Mobility Profile describes in a unified format the main features (i.e frequent places, current location, most likely next trip and transport preferencies) of individuals mobility habits. Profile can be generated based on individual’s calendar data and location history among other personal data sources. According to the MyData -principles the profile owner will be in control of sharing the profile information to profile client applications. Sharing profile information instead of raw data enhances user privacy, since the profile data is less granular. General purpose Mobility Profile is intended to be used by a variety of mobility service providers and applications such as Journey Planners and future Mobility-as-a-Srevice (MaaS) operators. This recommendation describes the first implementation version of the Mobility Profile and forms a basis for future development of a common specification.</p>
+   <h2 class="heading settled" data-level="2" id="intro"><span class="secno">2. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
+   <p>Users of transport services (e.g. public transportation, taxis, ride sharing services such as Uber etc.) are increasingly using digital tools such as journey planners, dedicated mobile applications and digital assistants (i.e. Google Now) to plan their trips. These tools often rely on the end-users to allow access to their personal data such as GPS location, digital calendar or even emails and web searches. In the future Mobility-as-a-Service (MaaS)<a data-link-type="biblio" href="#biblio-1">[1]</a> -operators are envisioned to offer end-users seamless door-to-door mobility services that combine several modes of transportation (e.g. local and long-distance buses, trams, taxis, demand-responsive public transportation and shared private vehicles) into a simple package.</p>
+   <p>These next generation mobility services are expected to utilize heavily data about the end-users to create personalized user experience as well as to optimize the service production. Furthermore as the MaaS operator orchestrates the service production together with several transport providers the information about the end-users need to be transferred between different systems and databases.</p>
    <p>Gathering personal data has always privacy and security implications and sharing that data between systems and organizations require technical interoperability. At the moment individual mobility applications work mostly in isolation. They rely on user consent to get access to the personal data in raw format usually directly from the mobile device. Also non-standard system specific data formats are used which causes fragmentation, high barrier for any between-systems integration, limited transferability of the information and in general end-user information to become locked into closed systems.</p>
-   <p>To address the privacy concerns and fragmentation of data structures a common mobility profile could be defined. The aim is to secure from early on that the mobility profiles produced by the MaaS-operators will be interoperable and controlled by the end-user following the MyData -principles.</p>
-   <h3 class="heading settled" data-level="1.1" id="definitions"><span class="secno">1.1. </span><span class="content">Definitions</span><a class="self-link" href="#definitions"></a></h3>
+   <p>To address the privacy concerns and fragmentation of data structures a common mobility profile could be defined. The aim is to secure from early on that the mobility profiles produced by the MaaS-operators will be interoperable and controlled by the end-user following the MyData -principles <a data-link-type="biblio" href="#biblio-2">[2]</a>.</p>
+   <h3 class="heading settled" data-level="2.1" id="definitions"><span class="secno">2.1. </span><span class="content">Definitions</span><a class="self-link" href="#definitions"></a></h3>
    <p><dfn data-dfn-type="dfn" data-noexport="" id="profile-owner">Profile Owner<a class="self-link" href="#profile-owner"></a></dfn> is the user who’s personal data is used to create the mobility profile. According to the MyData principles the profile owner has full control ower the content and sharing of the mobility profile.</p>
    <p><dfn data-dfn-type="dfn" data-noexport="" id="data-source">Data Source<a class="self-link" href="#data-source"></a></dfn> can, when authorised, provision profile owner’s personal data (e.g. calendar, current location or other mobility data suchs as travel card data) to the Personal Data Storage or Mobility Profile Creator.</p>
    <p><dfn data-dfn-type="dfn" data-noexport="" id="personal-data-storage">Personal Data Storage<a class="self-link" href="#personal-data-storage"></a></dfn> (PDS) is the component to receive, store and organize profile owner’s data from different sources prior to analysis and creation or update of the mobility profile.</p>
    <p><dfn data-dfn-type="dfn" data-noexport="" id="profile-creator">Profile Creator<a class="self-link" href="#profile-creator"></a></dfn> is a mobile application which provides the mobility profile specified in this draft via standard interfaces to other applications in the same mobile device (see. Profile client application). In simplest form the profile creator can be a dummy application serving static data, but in more advanced scenarios it receives data from data sources, does the data analysis and creates more accurate and dynamically changing mobility profile.</p>
    <p><dfn data-dfn-type="dfn" data-noexport="" id="profile-client">Profile Client<a class="self-link" href="#profile-client"></a></dfn> is a mobile application which requests the mobility profile via standard interfaces from the profile creator running in the same mobile device. It can be for example a journey planner application which uses the mobility profile information to context adaptation (i.e. suggest most propable next journey) and personalization (i.e. update preferred places).</p>
-   <h3 class="heading settled" data-level="1.2" id="example"><span class="secno">1.2. </span><span class="content">Example</span><a class="self-link" href="#example"></a></h3>
-   <div class="example" id="example-6daf3632">
-    <a class="self-link" href="#example-6daf3632"></a> User story: As a traveller I want that my favourite journey planner app automatically suggests the most likely next trip (pre-filled in the search box) immeadiately when I open the application, so that I don’t need to type in anything. 
+   <h3 class="heading settled" data-level="2.2" id="example"><span class="secno">2.2. </span><span class="content">Example</span><a class="self-link" href="#example"></a></h3>
+   <div class="example" id="example-aa5566df">
+    <a class="self-link" href="#example-aa5566df"></a> User story: As a traveller I want that my favourite journey planner app automatically suggests the most likely next trip (pre-filled in the search box) immeadiately when I open the application, so that I don’t need to type in anything. 
     <p>In this example Traveller is the Profile Owner. He has two applications installed on his mobile device 1) mobility Profile Creator which includes the Personal Data Storage and 2) the journey planner which is the Profile Client. The Profile Creator can access Data Sources most importantly the calendar and GPS location on travellers mobile device, but the journey planner does not need access to any personal data in raw format.</p>
-    <p>In order to suggest the most likely next trip the journey planner request that information from the Profile Creator. The journey planner does not know how (or based on what data) the Profile Creator actually produces the most likely next trip estimate, it only receives the start place and destination of the most likely next trip and can use that for calculating route and presenting that for the user.</p>
-    <p>The Profile Client can give feedback for the Profile Creator. If user accepts the suggested next trip as the actual trip it sends accepted:TRUE if not then it sends accepted:FALSE and the actual start place and destination which the user typed instead of accepting the suggestion. This enables the Profile Creator to enhance the Mobility Profile with machine learning.
-Communication between Profile Client and Profile creator happens automatically on the background. User involvement is needed only once when the journey planner and profile creator apps are connected for the first time.</p>
+    <p>In order to suggest the most likely next trip the journey planner requests that information from the Profile Creator. The journey planner does not know how (or based on what data) the Profile Creator actually produces the most likely next trip estimate, it only receives the start place and destination of the most likely next trip and can use that for calculating route and presenting that for the user.</p>
+    <p>The Profile Client can give feedback for the Profile Creator. This enables the Profile Creator to enhance the Mobility Profile with machine learning.</p>
+    <p>Communication between Profile Client and Profile creator happens automatically on the background. User involvement is needed only once when the journey planner and profile creator apps are connected for the first time.</p>
     <p>Design principle is to create require minimal changes to the existing journey planner apps. One option for light weight between-apps communicatio is to use URL Scheme (see for example https://appurl.org).</p>
     <p><img src="images/mobility-profile-example.png" width="100%"></p>
    </div>
-   <h2 class="heading settled" data-level="2" id="structure"><span class="secno">2. </span><span class="content">Structure of mobility profile</span><a class="self-link" href="#structure"></a></h2>
-   <dl>
-    <dt data-md="">
-     <p>frequent_places</p>
-    <dd data-md="">
-     <p>string</p>
-    <dd data-md="">
-     <p>foo</p>
-    <dt data-md="">
-     <p>current_location</p>
-    <dd data-md="">
-     <p>bar</p>
-    <dt data-md="">
-     <p>likely_next_trip</p>
-    <dd data-md="">
-     <p>..</p>
-    <dt data-md="">
-     <p>preferred_mobility_mode</p>
-    <dd data-md="">
-     <p>.</p>
-   </dl>
-   <h2 class="heading settled" data-level="3" id="security"><span class="secno">3. </span><span class="content">Security Considerations</span><a class="self-link" href="#security"></a></h2>
+   <h2 class="heading settled" data-level="3" id="structure"><span class="secno">3. </span><span class="content">Structure of mobility profile</span><a class="self-link" href="#structure"></a></h2>
+   <h3 class="heading settled" data-level="3.1" id="messaging"><span class="secno">3.1. </span><span class="content">Messaging between Profile Creator and Profile Client</span><a class="self-link" href="#messaging"></a></h3>
+   <p>The following gives a description of messages that MUST be implemented by a Profile Creator and a Profile Client.</p>
+   <p>In the first implemented version of Mobility Profile, a Profile Client (e.g. journey planner) receives destination suggestions from the Profile Creator as a JSONArray containing GeoJSON objects representing potential destinations. The start location is still found independently of Mobility Profile by the Profile Client (which is something that should be fixed in future versions if the idea is to isolate Profile Clients from all direct access to GPS and other location services).</p>
+   <p>After a user makes a trip search Profile Client returns a message back to Mobility Profile  containing the latitude and longitude of both origin and destination of the searched trip and a number code identifying the search as being either intracity or intercity.
+An example reference implementation of the Profile Creator and documentation on how to integrate a Profile Client to the Profile Creator can be found from https://github.com/mobility-profile.</p>
+   <h3 class="heading settled" data-level="3.2" id="implementation"><span class="secno">3.2. </span><span class="content">Example Implementation of Profile Creator</span><a class="self-link" href="#implementation"></a></h3>
+   <p>The following is an example of how a Profile Creator MAY be implemented, but other implementations are also possible. The code and documentation for this example implemantion are available in https://github.com/mobility-profile.</p>
+   <p>Based on the received messages a Profile Creator can search its place from an database with the returned coordinates. If the database contains a place within a predefined radius from the searched origin (or destination) it is assumed that it equals the origin (or destination) of the search. If no place is found a new one is created by acquiring all necessary address information through a geocoding service using the returned coordinates. Finally the route search itself referencing the found or created places and with an attribute identifying the search as either intracity or intercity is saved into the database.</p>
+   <p>The intracity/intercity code is needed by the destination suggestion logic. If the Profile Client queries Mobility Profile for intercity destination suggestions in the current version the logic is based on searching the database for previously searched intercity trips and making the destination suggestion based on them.</p>
+   <h2 class="heading settled" data-level="4" id="security"><span class="secno">4. </span><span class="content">Security Considerations</span><a class="self-link" href="#security"></a></h2>
    <p>Key security consideration is to decide the limits for how often and how widely the client applications are allowed to request profile information. Too frequent profile requests could make it possible to replicate for example profile owners full location history.</p>
-   <h2 class="heading settled" data-level="4" id="conclusions"><span class="secno">4. </span><span class="content">Conclusions</span><a class="self-link" href="#conclusions"></a></h2>
-   <p>This is first working draft of the Mobility Profile which will be developed further.</p>
+   <h2 class="heading settled" data-level="5" id="conclusions"><span class="secno">5. </span><span class="content">Conclusions</span><a class="self-link" href="#conclusions"></a></h2>
+   <p>This is first version of the Mobility Profile and forms a basis for future development of a common specification.</p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -1573,15 +1575,22 @@ Communication between Profile Client and Profile creator happens automatically o
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#data-source">Data Source</a><span>, in §1.1</span>
-   <li><a href="#personal-data-storage">Personal Data Storage</a><span>, in §1.1</span>
-   <li><a href="#profile-client">Profile Client</a><span>, in §1.1</span>
-   <li><a href="#profile-creator">Profile Creator</a><span>, in §1.1</span>
-   <li><a href="#profile-owner">Profile Owner</a><span>, in §1.1</span>
+   <li><a href="#data-source">Data Source</a><span>, in §2.1</span>
+   <li><a href="#personal-data-storage">Personal Data Storage</a><span>, in §2.1</span>
+   <li><a href="#profile-client">Profile Client</a><span>, in §2.1</span>
+   <li><a href="#profile-creator">Profile Creator</a><span>, in §2.1</span>
+   <li><a href="#profile-owner">Profile Owner</a><span>, in §2.1</span>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
+  </dl>
+  <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
+  <dl>
+   <dt id="biblio-1">[1]
+   <dd>Sonja Heikkilä. <a href="https://aaltodoc.aalto.fi/bitstream/handle/123456789/13133/master_Heikkil%C3%A4_Sonja_2014.pdf">Mobility as a Service – A Proposal for Action for the Public Administration Case Helsinki. Master’s Thesis</a>. URL: <a href="https://aaltodoc.aalto.fi/bitstream/handle/123456789/13133/master_Heikkil%C3%A4_Sonja_2014.pdf">https://aaltodoc.aalto.fi/bitstream/handle/123456789/13133/master_Heikkil%C3%A4_Sonja_2014.pdf</a>
+   <dt id="biblio-2">[2]
+   <dd>Antti Poikola; Kai Kuikkaniemi; Harri Honko. <a href="http://urn.fi/URN:ISBN:978-952-243-455-5">MyData – A Nordic Model for human-centered personal data management and processing</a>. URL: <a href="http://urn.fi/URN:ISBN:978-952-243-455-5">http://urn.fi/URN:ISBN:978-952-243-455-5</a>
   </dl>

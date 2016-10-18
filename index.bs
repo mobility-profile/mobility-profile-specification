@@ -1,25 +1,31 @@
 <pre class='metadata'>
-Title: Mobility Profile
+Title: Mobility Profile v1.0
 Shortname: mobility-profile-spec
-Level: 1
+Level: 1.0
 Status: LS
-URL: https://mobility-profile.github.io/mobility-profile-specification/
-Editor: Antti Poikola, Aalto University, http://www.hiit.fi/, antti.poikola@hiit.fi
+URL: https://mobility-profile.github.io/mobility-profile-specification
+Repository: mobility-profile/mobility-profile-specification
+Editor: Antti Poikola, Aalto University, http://www.hiit.fi, antti.poikola@hiit.fi
 Editor: Immo Heino, VTT
 Editor: Thomas Casey, VTT
-Abstract: Mobility Profile describes in unified format the main features (i.e frequent places, current location, most likely next trip and transport preferencies) of individuals mobility habits. Profile can be generated based on individual’s calendar data and location history among other personal data sources. According to the MyData -principles the profile owner will be in control of sharing the profile information to profile client applications. Sharing profile information instead of raw data enhances user privacy, since the profile data is less granular. General purpose Mobility Profile is intended to be used by variety mobility service providers and applications such as Journey Planners and future Mobility-as-a-Srevice (MaaS) operators.
-Status Text: This draft document is valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to cite this other than as "work in progress". This Draft will expire on November 20, 2016
+Abstract:
+!Version History: <a href="https://github.com/mobility-profile/mobility-profile-specification/commits">https://github.com/mobility-profile/mobility-profile-specification/commits</a>
+!Participate: <a href="https://github.com/mobility-profile/mobility-profile-specification/issues/new">File an issue</a> (<a href="https://github.com/mobility-profile/mobility-profile-specification/issues?state=open">open issues</a>)
 </pre>
 
-Introduction {#intro}
-=====================
+# Abstract # {#abstract}
 
-Users of transport services (e.g. public transportation, taxis, ride sharing services such as Uber etc.) are increasingly using digital tools such as journey planners, dedicated mobile applications and digital assistants (i.e. Google Now) to plan their trips. These tools often rely on end-user to allow access to their personal data such as GPS location, digital calendar or even emails and web searches. In the future Mobility-as-a-Service (MaaS)[1] -operators are envisioned to offer end-users seamless door-to-door mobility services that combine several modes of transportation (e.g. local and long-distance buses, trams, taxis, demand-responsive public transportation and shared private vehicles) into a simple package.
+Mobility Profile describes in a unified format the main features (i.e frequent places, current location, most likely next trip and transport preferencies) of individuals mobility habits. Profile can be generated based on individual’s calendar data and location history among other personal data sources. According to the MyData -principles the profile owner will be in control of sharing the profile information to profile client applications. Sharing profile information instead of raw data enhances user privacy, since the profile data is less granular. General purpose Mobility Profile is intended to be used by a variety of mobility service providers and applications such as Journey Planners and future Mobility-as-a-Srevice (MaaS) operators. This recommendation describes the first implementation version of the Mobility Profile and forms a basis for future development of a common specification.
+
+# Introduction # {#intro}
+
+Users of transport services (e.g. public transportation, taxis, ride sharing services such as Uber etc.) are increasingly using digital tools such as journey planners, dedicated mobile applications and digital assistants (i.e. Google Now) to plan their trips. These tools often rely on the end-users to allow access to their personal data such as GPS location, digital calendar or even emails and web searches. In the future Mobility-as-a-Service (MaaS)[[1]] -operators are envisioned to offer end-users seamless door-to-door mobility services that combine several modes of transportation (e.g. local and long-distance buses, trams, taxis, demand-responsive public transportation and shared private vehicles) into a simple package.
+
 These next generation mobility services are expected to utilize heavily data about the end-users to create personalized user experience as well as to optimize the service production. Furthermore as the MaaS operator orchestrates the service production together with several transport providers the information about the end-users need to be transferred between different systems and databases.
 
 Gathering personal data has always privacy and security implications and sharing that data between systems and organizations require technical interoperability. At the moment individual mobility applications work mostly in isolation. They rely on user consent to get access to the personal data in raw format usually directly from the mobile device. Also non-standard system specific data formats are used which causes fragmentation, high barrier for any between-systems integration, limited transferability of the information and in general end-user information to become locked into closed systems.
 
-To address the privacy concerns and fragmentation of data structures a common mobility profile could be defined. The aim is to secure from early on that the mobility profiles produced by the MaaS-operators will be interoperable and controlled by the end-user following the MyData -principles.
+To address the privacy concerns and fragmentation of data structures a common mobility profile could be defined. The aim is to secure from early on that the mobility profiles produced by the MaaS-operators will be interoperable and controlled by the end-user following the MyData -principles [[2]].
 
 ## Definitions ## {#definitions}
 
@@ -40,9 +46,10 @@ User story: As a traveller I want that my favourite journey planner app automati
 
 In this example Traveller is the Profile Owner. He has two applications installed on his mobile device 1) mobility Profile Creator which includes the Personal Data Storage and 2) the journey planner which is the Profile Client. The Profile Creator can access Data Sources most importantly the calendar and GPS location on travellers mobile device, but the journey planner does not need access to any personal data in raw format.
 
-In order to suggest the most likely next trip the journey planner request that information from the Profile Creator. The journey planner does not know how (or based on what data) the Profile Creator actually produces the most likely next trip estimate, it only receives the start place and destination of the most likely next trip and can use that for calculating route and presenting that for the user.
+In order to suggest the most likely next trip the journey planner requests that information from the Profile Creator. The journey planner does not know how (or based on what data) the Profile Creator actually produces the most likely next trip estimate, it only receives the start place and destination of the most likely next trip and can use that for calculating route and presenting that for the user.
 
-The Profile Client can give feedback for the Profile Creator. If user accepts the suggested next trip as the actual trip it sends accepted:TRUE if not then it sends accepted:FALSE and the actual start place and destination which the user typed instead of accepting the suggestion. This enables the Profile Creator to enhance the Mobility Profile with machine learning.
+The Profile Client can give feedback for the Profile Creator. This enables the Profile Creator to enhance the Mobility Profile with machine learning.
+
 Communication between Profile Client and Profile creator happens automatically on the background. User involvement is needed only once when the journey planner and profile creator apps are connected for the first time.
 
 Design principle is to create require minimal changes to the existing journey planner apps. One option for light weight between-apps communicatio is to use URL Scheme (see for example https://appurl.org).
@@ -50,25 +57,56 @@ Design principle is to create require minimal changes to the existing journey pl
 <img width="100%" src='images/mobility-profile-example.png'>
 </div>
 
-Structure of mobility profile {#structure}
-==========================================
+# Structure of mobility profile # {#structure}
 
-: frequent_places
-:: string
-:: foo
-: current_location
-:: bar
-: likely_next_trip
-:: ..
-: preferred_mobility_mode
-:: .
+## Messaging between Profile Creator and Profile Client ## {#messaging}
 
-Security Considerations {#security}
-===================================
+The following gives a description of messages that MUST be implemented by a Profile Creator and a Profile Client.
+
+In the first implemented version of Mobility Profile, a Profile Client (e.g. journey planner) receives destination suggestions from the Profile Creator as a JSONArray containing GeoJSON objects representing potential destinations. The start location is still found independently of Mobility Profile by the Profile Client (which is something that should be fixed in future versions if the idea is to isolate Profile Clients from all direct access to GPS and other location services).
+
+After a user makes a trip search Profile Client returns a message back to Mobility Profile  containing the latitude and longitude of both origin and destination of the searched trip and a number code identifying the search as being either intracity or intercity. 
+An example reference implementation of the Profile Creator and documentation on how to integrate a Profile Client to the Profile Creator can be found from https://github.com/mobility-profile.
+
+## Example Implementation of Profile Creator ## {#implementation}
+
+The following is an example of how a Profile Creator MAY be implemented, but other implementations are also possible. The code and documentation for this example implemantion are available in https://github.com/mobility-profile.
+
+Based on the received messages a Profile Creator can search its place from an database with the returned coordinates. If the database contains a place within a predefined radius from the searched origin (or destination) it is assumed that it equals the origin (or destination) of the search. If no place is found a new one is created by acquiring all necessary address information through a geocoding service using the returned coordinates. Finally the route search itself referencing the found or created places and with an attribute identifying the search as either intracity or intercity is saved into the database. 
+
+The intracity/intercity code is needed by the destination suggestion logic. If the Profile Client queries Mobility Profile for intercity destination suggestions in the current version the logic is based on searching the database for previously searched intercity trips and making the destination suggestion based on them.
+
+
+# Security Considerations # {#security}
 
 Key security consideration is to decide the limits for how often and how widely the client applications are allowed to request profile information. Too frequent profile requests could make it possible to replicate for example profile owners full location history.
 
-Conclusions {#conclusions}
-==========================
+# Conclusions # {#conclusions}
 
-This is first working draft of the Mobility Profile which will be developed further.
+This is first version of the Mobility Profile and forms a basis for future development of a common specification.
+
+
+
+<pre class=biblio>
+
+{
+   "1": {
+       "authors": [
+           "Sonja Heikkilä"
+       ],
+       "href": "https://aaltodoc.aalto.fi/bitstream/handle/123456789/13133/master_Heikkil%C3%A4_Sonja_2014.pdf",
+       "title": "Mobility as a Service – A Proposal for Action for the Public Administration Case Helsinki. Master’s Thesis",
+       "publisher": "Aalto University"
+   },
+    "2": {
+       "authors": [
+           "Antti Poikola",
+           "Kai Kuikkaniemi",
+           "Harri Honko"
+       ],
+       "href": "http://urn.fi/URN:ISBN:978-952-243-455-5",
+       "title": "MyData – A Nordic Model for human-centered personal data management and processing",
+       "publisher": "Ministry of Transport and Communications"
+   }
+}
+</pre>
