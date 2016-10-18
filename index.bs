@@ -52,7 +52,7 @@ The Profile Client can give feedback for the Profile Creator. This enables the P
 
 Communication between Profile Client and Profile creator happens automatically on the background. User involvement is needed only once when the journey planner and profile creator apps are connected for the first time.
 
-Design principle is to create require minimal changes to the existing journey planner apps. One option for light weight between-apps communicatio is to use URL Scheme (see for example https://appurl.org).
+Design principle is to create require minimal changes to the existing journey planner apps. One option for light weight between-apps communicatio is to use URL Scheme (see for example <a href="https://appurl.org">https://appurl.org</a>).
 
 <img width="100%" src='images/mobility-profile-example.png'>
 </div>
@@ -65,12 +65,13 @@ The following gives a description of messages that MUST be implemented by a Prof
 
 In the first implemented version of Mobility Profile, a Profile Client (e.g. journey planner) receives destination suggestions from the Profile Creator as a JSONArray containing GeoJSON objects representing potential destinations. The start location is still found independently of Mobility Profile by the Profile Client (which is something that should be fixed in future versions if the idea is to isolate Profile Clients from all direct access to GPS and other location services).
 
-After a user makes a trip search Profile Client returns a message back to Mobility Profile  containing the latitude and longitude of both origin and destination of the searched trip and a number code identifying the search as being either intracity or intercity. 
-An example reference implementation of the Profile Creator and documentation on how to integrate a Profile Client to the Profile Creator can be found from https://github.com/mobility-profile.
+After a user makes a trip search Profile Client returns a message back to Mobility Profile  containing the latitude and longitude of both origin and destination of the searched trip and a number code identifying the search as being either intracity or intercity.
+
+An example reference implementation of the Profile Creator and documentation on how to integrate a Profile Client to the Profile Creator can be found from <a href="https://github.com/mobility-profile">https://github.com/mobility-profile</a>.
 
 ## Example Implementation of Profile Creator ## {#implementation}
 
-The following is an example of how a Profile Creator MAY be implemented, but other implementations are also possible. The code and documentation for this example implemantion are available in https://github.com/mobility-profile.
+The following is an example of how a Profile Creator MAY be implemented, but other implementations are also possible. The code and documentation for this example implemantion are available in <a href="https://github.com/mobility-profile">https://github.com/mobility-profile</a>.
 
 Based on the received messages a Profile Creator can search its place from an database with the returned coordinates. If the database contains a place within a predefined radius from the searched origin (or destination) it is assumed that it equals the origin (or destination) of the search. If no place is found a new one is created by acquiring all necessary address information through a geocoding service using the returned coordinates. Finally the route search itself referencing the found or created places and with an attribute identifying the search as either intracity or intercity is saved into the database. 
 
