@@ -1,0 +1,6 @@
+{
+  "name": "Mobility Profile",
+  "tagline": "Light specification and reference implementation for a mobility profile creator that works locally in mobile device",
+  "body": "### Light Specification\r\nRead the [mobility profile specification](https://mobility-profile.github.io/mobility-profile-specification/spec).\r\n\r\n### Reference Implementation\r\nFork and re-use the [code of the reference implementation for Android](https://github.com/mobility-profile/Mobility-Profile).\r\n\r\n### Mobility Profile API\r\n[API definitions](https://github.com/mobility-profile/Mobility-Profile-API).\r\n\r\n### Support or Contact\r\nAntti Poikola antti.poikola@hiit.fi",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
